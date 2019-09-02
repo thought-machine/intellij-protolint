@@ -10,41 +10,21 @@ Compatibility Matrix:
 
 | Plugin Version  | IDE Version Range  |
 |-----------------|--------------------|
-| 0.1.0           | IDEA 2018.3        |
-
-### Example
-
-Using the following `.protolint.yaml` configuration file.
-
-```yaml
-lint:
-  rules:
-    no_default: true
-
-    add:
-      - MESSAGE_NAMES_UPPER_CAMEL_CASE
-      - SERVICE_NAMES_UPPER_CAMEL_CASE
-```
-
-![demo](doc/demo.gif)
+| 0.2.2           | IDEA 2018.3        |
 
 ### Installation
 
-You can install the plugin by opening "Plugins" settings, "Marketplace" - search for "Protocol Buffer Linter".
+// WHat?>??!?
 
 #### Dependencies
 
-- [protolint](https://github.com/yoheimuta/protolint) must be installed.
+- [apilint](https://github.com/thought-machine/protolint) will be installed by default
 - [protobuf-jetbrains-plugin](https://github.com/protostuff/protobuf-jetbrains-plugin) must be installed.
 
 ### Configuration
 
-The plugin does not require configuration by default, for the majority of projects it should work out of the box.
+The plugin will lint all protobuf file based on the API guidelines by default
 
-#### Path
-
-The plugin refers to the `protolint` executable in your PATH by default.
-You can configure the path to the `protolint` executable and its config directory through `Preferences -> Tools -> Protocol Buffer Linter`.
 
 ### Development
 

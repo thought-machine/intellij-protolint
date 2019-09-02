@@ -1,32 +1,22 @@
 <idea-plugin>
-    <id>com.yoheimuta.intellij.plugin.protolint</id>
-    <name>Protocol Buffer Linter</name>
-    <vendor email="yoheimuta@gmail.com" url="https://github.com/yoheimuta">yoheimuta</vendor>
+    <id>net.thoughtmachine.intellij.plugin.protolint</id>
+    <name>Protobuf API Linter</name>
+    <vendor url="https://www.thoughtmachine.net/">Thought Machine</vendor>
 
     <description><![CDATA[
-      <a href="https://github.com/yoheimuta/protolint/">Protolint</a> plugin for all products based on IntelliJ Platform (IntelliJ IDEA, GoLand, RubyMine, WebStorm, PhpStorm, PyCharm, AppCode, etc.)<br><br>
-
-      <img src="https://raw.githubusercontent.com/yoheimuta/intellij-protolint/master/doc/demo.gif" alt="demo" style="max-width:100%;">
+      <a href="https://github.com/thought-machine/protolint/">API Lint</a> plugin for all products based on IntelliJ Platform (IntelliJ IDEA, GoLand, RubyMine, WebStorm, PhpStorm, PyCharm, AppCode, etc.)<br><br>
 
       <br/>
+      By default the plugin will lint all protobuf files based on the API guidelines
       <br/>
-      The plugin does not require configuration by default, for the majority of projects it should work out of the box.
       <br/>
-      It is assumed that <code>protolint</code> executable is installed and available in your PATH by default.
 
-      <br/>
-      <br/>
-      You can configure the path to the <code>protolint</code> executable and its config through Preferences -> Tools -> Protocol Buffer Linter
-
-      <br/>
-      <br/>
-      <a href="https://github.com/yoheimuta/intellij-protolint">Documentation</a>
-      | <a href="https://github.com/yoheimuta/intellij-protolint/issues">Issue tracker</a>
-      | <a href="https://github.com/yoheimuta/protolint/releases">Protolint releases</a>
+      <a href="https://github.com/thought-machine/intellij-protolint">Documentation</a>
+      | <a href="https://github.com/thought-machine/intellij-protolint/issues">Issue tracker</a>
     ]]></description>
 
     <change-notes><![CDATA[
-      Version 0.1.2: Lint responsiveness and correctness are significantly improved.
+      Version 0.2.2: This is the first version of this plugin
     ]]>
     </change-notes>
 
@@ -38,6 +28,5 @@
     <extensions defaultExtensionNs="com.intellij">
         <externalAnnotator language="PROTO" implementationClass="com.yoheimuta.intellij.plugin.protolint.ProtolintAnnotator" />
         <projectService serviceImplementation="com.yoheimuta.intellij.plugin.protolint.ProjectService" />
-        <projectConfigurable groupId="tools" instance="com.yoheimuta.intellij.plugin.protolint.ProjectConfigurationPanel"/>
     </extensions>
 </idea-plugin>
