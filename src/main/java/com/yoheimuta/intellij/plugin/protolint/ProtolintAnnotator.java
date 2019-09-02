@@ -55,7 +55,7 @@ public class ProtolintAnnotator extends ExternalAnnotator<Editor, List<Protolint
                 return;
             }
             TextRange range = new TextRange(startOffset, endOffset);
-            holder.createWarningAnnotation(range, warning.getReason());
+            holder.createErrorAnnotation(range, warning.getReason());
             LOGGER.info("Create an annotation");
         });
     }
