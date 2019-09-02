@@ -110,8 +110,6 @@ public class ProtolintExecutor {
             return null;
         }
 
-        System.out.println(raw);
-
         try {
             final Integer line = Integer.valueOf(matcher.group(1));
             final Integer column = Integer.valueOf(matcher.group(2));
