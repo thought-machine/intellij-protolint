@@ -14,7 +14,10 @@ Compatibility Matrix:
 
 ### Installation
 
-// WHat?>??!?
+This extension extension can be installed by following these steps:
+
+1. Go to the [releases page](https://github.com/thought-machine/intellij-protolint/releases) and download the latest version
+2. Follow the "Install plugin from disk" [instructions](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk) to add the extension to your Idea IDE 
 
 #### Dependencies
 
@@ -23,7 +26,7 @@ Compatibility Matrix:
 
 ### Configuration
 
-The plugin will lint all protobuf file based on the API guidelines by default
+The plugin will lint all protobuf files based on the API guidelines by default
 
 
 ### Development

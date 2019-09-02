@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>net.thoughtmachine.intellij.plugin.protolint</id>
+    <id>net.thoughtmachine.intellij.plugin.apilint</id>
     <name>Protobuf API Linter</name>
     <vendor url="https://www.thoughtmachine.net/">Thought Machine</vendor>
 
