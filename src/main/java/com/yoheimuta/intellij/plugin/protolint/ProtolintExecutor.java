@@ -18,6 +18,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProtolintExecutor {
     private static final Logger LOGGER = Logger.getInstance(ProtolintExecutor.class.getPackage().getName());
@@ -99,21 +101,19 @@ public class ProtolintExecutor {
 
     private static ProtolintWarning parseWarning(final String raw) {
         // e.g. [/path/to/cloudEndpoints.proto:121:13] Field name "Disabled" must be LowerSnakeCase
-        final String[] parts = raw.split("] ");
-        if (parts.length < 2) {
-            LOGGER.debug("Not found one ]. " + raw);
-            return null;
-        }
-        final String[] meta = parts[0].split(":");
-        if (meta.length < 3) {
-            LOGGER.debug("Not found two :. " + raw);
+        String errorRegex = "^\\[[^:]+:(\\d+):(\\d+)\\] (.*)$";
+        Pattern pattern = Pattern.compile(errorRegex);
+        Matcher matcher = pattern.matcher(raw);
+
+        if (!matcher.find()) {
+            LOGGER.debug("Error message did not match regex - " + raw);
             return null;
         }
 
         try {
-            final Integer line = Integer.valueOf(meta[meta.length - 2]);
-            final Integer column = Integer.valueOf(meta[meta.length - 1]);
-            final String reason = parts[1];
+            final Integer line = Integer.valueOf(matcher.group(1));
+            final Integer column = Integer.valueOf(matcher.group(2));
+            final String reason = matcher.group(3);
             return new ProtolintWarning(line, column, reason);
         } catch (NumberFormatException ex) {
             LOGGER.debug("This is not warning output.");
