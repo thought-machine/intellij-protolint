@@ -72,7 +72,7 @@ public class ProtolintExecutor {
     }
 
     private static List<ProtolintWarning> getOutput(final Process process) {
-        final Reader errorStreamReader = new InputStreamReader(process.getErrorStream());
+        final Reader errorStreamReader = new InputStreamReader(process.getInputStream());
         final BufferedReader error = new BufferedReader(errorStreamReader);
 
         List<ProtolintWarning> warnings = new ArrayList<>();
@@ -122,7 +122,7 @@ public class ProtolintExecutor {
     }
 
     private static String getDefaultExe() {
-        return "protolint";
+        return "apilint";
     }
 
 
