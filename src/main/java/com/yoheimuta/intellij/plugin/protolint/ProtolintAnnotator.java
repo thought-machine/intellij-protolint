@@ -47,7 +47,7 @@ public class ProtolintAnnotator extends ExternalAnnotator<Editor, List<Protolint
         warnings.forEach(warning -> {
             int line = warning.getLine()-1;
             int endOffset = document.getLineEndOffset(line);
-            int startOffset = StringUtil.lineColToOffset(file.getText(), line, warning.getColumn());
+            int startOffset = StringUtil.lineColToOffset(file.getText(), line, warning.getColumn())-1;
 
             // See https://github.com/Hannah-Sten/TeXiFy-IDEA/pull/844
             if (!isProperRange(startOffset, endOffset)) {
@@ -55,7 +55,7 @@ public class ProtolintAnnotator extends ExternalAnnotator<Editor, List<Protolint
                 return;
             }
             TextRange range = new TextRange(startOffset, endOffset);
-            holder.createWarningAnnotation(range, warning.getReason());
+            holder.createErrorAnnotation(range, warning.getReason());
             LOGGER.info("Create an annotation");
         });
     }
